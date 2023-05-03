@@ -1,6 +1,25 @@
 # Confluent cloud Kafka Topic Size Tool
 
-This Python script retrieves the size of Kafka topics from a Confluent Cloud cluster. It fetches the retained bytes for each topic and displays them in a human-readable table. If no topics are specified, the script will print the size for all topics in the cluster.
+This Python script retrieves the size of Kafka topics from a Confluent Cloud cluster. It fetches the latest retained bytes for each topic and displays them in a human-readable table. If no topics are specified, the script will print the size for all topics in the cluster.
+The script uses Confluent cloud metrics api. It fetches the current value of the metric **retained_bytes**.
+The query payload is;
+```json
+{
+        "aggregations": [{"metric": "io.confluent.kafka.server/retained_bytes"}],
+        "filter": {
+            "op": "AND",
+            "filters": [
+                {"field": "resource.kafka.id", "op": "EQ", "value": CLUSTER_ID},
+                {"field": "metric.topic", "op": "EQ", "value": topic},
+            ],
+        },
+        "granularity": "PT1M",
+        "intervals": [interval],
+    }
+```
+**interval** is **[current_time-1min,current_time]**
+
+Please refer to https://api.telemetry.confluent.cloud/docs/descriptors/datasets/cloud and https://docs.confluent.io/cloud/current/monitoring/metrics-api.html 
 
 ## Requirements
 
