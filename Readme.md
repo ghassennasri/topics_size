@@ -37,6 +37,8 @@ python topic_size.py --cluster-api-key <cluster-api-key> \
 - `--cluster-id`: The Cluster ID. (required)
 - `--topics`: A list of specific topics to get the size of. If this argument is not provided, the script will print the size for all topics in the cluster. (optional)
 
+Refer to https://docs.confluent.io/cloud/current/access-management/authenticate/api-keys/api-keys.html to create cloud/cluster api keys
+
 Example command:
 
 ```bash
@@ -52,7 +54,7 @@ python topic_size.py --cluster-api-key FYQOARIQRY4MHC3H \
 The script will display a table with the topic names and their corresponding sizes in bytes. It will also display the total number of requested topics and the total retained bytes in MBytes. If the `--topics` argument is not provided, the script will print the size for all topics in the cluster.
 
 Example output:
-![Example Output](Screenshot 2023-05-03 060837.png) 
+![Example Output](Screenshot_2023-05-03_060837.png) 
 
 
 
