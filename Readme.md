@@ -52,7 +52,7 @@ python topic_size.py --cluster-api-key FYQOARIQRY4MHC3H \
 The script will display a table with the topic names and their corresponding sizes in bytes. It will also display the total number of requested topics and the total retained bytes in MBytes. If the `--topics` argument is not provided, the script will print the size for all topics in the cluster.
 
 Example output:
-![Example Output](./Screenshot 2023-05-03 060837.png) 
+![Example Output](Screenshot 2023-05-03 060837.png) 
 
 
 
